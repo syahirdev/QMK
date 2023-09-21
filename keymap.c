@@ -33,6 +33,20 @@ enum preonic_keycodes {
   BACKLIT
 };
 
+#define COMMENT LCTL(KC_SLSH)
+#define DBKSP LCTL(KC_BSPC)
+
+#define UNDO LCTL(KC_Z)
+#define REDO LCTL(KC_Y)
+
+#define SELECT LCTL(KC_A)
+#define CUT LCTL(KC_X)
+#define COPY LCTL(KC_C)
+#define PASTE LCTL(KC_V)
+#define SAVE LCTL(KC_S)
+
+#define REFRESH LCTL(KC_R)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Colemak
@@ -82,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|         | REDO    |         |         |         |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *| Ctrl+/  | Ctrl+Z  |         |  HOME   |   END   |         |         |         |   (↑)   |         |         |         |
- *| COMMEND | UNDO    |         |         |         |         |         |         |         |         |         |         |
+ *| COMMENT | UNDO    |         |         |         |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|Ctrl+Bksp| Ctrl+A  | Ctrl+X  | Ctrl+C  | Ctrl+V  |    {    |    }    |   (←)   |   (↓)   |   (→)   |         |         |
  *| ←←Bksp  | SELECT  | CUT     | COPY    | PASTE   |         |         |         |         |         |         |         |
@@ -95,11 +109,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_preonic_grid(
-  KC_NO, LCTL(KC_Y),  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-  LCTL(KC_SLSH),LCTL(KC_Z),KC_NO,KC_HOME, KC_END,   KC_NO,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,
-  LCTL(KC_BSPC),LCTL(KC_A),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),KC_LCBR,KC_RCBR,KC_LEFT,KC_DOWN,KC_RGHT,  KC_NO,    KC_NO,
-  KC_NO,    KC_NO,    KC_NO,    KC_NO,  LCTL(KC_S), KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-  LCTL(KC_R),KC_NO,   KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    KC_NO,    KC_NO
+  KC_NO,    REDO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+  COMMENT,  UNDO,     KC_NO,    KC_HOME,  KC_END,   KC_NO,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,
+  DBKSP,    SELECT,   CUT,      COPY,     PASTE,    KC_LCBR,  KC_RCBR,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_NO,    KC_NO,
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    SAVE,     KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+  REFRESH,  KC_NO,    KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    KC_NO,    KC_NO
 ),
 
 /* Raise
