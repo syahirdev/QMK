@@ -14,6 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/*
+ * Left and right shift are using Space Cadet.
+ *   Space Cadet: Left Shift when held, ( when tapped
+ */
+
 #include QMK_KEYBOARD_H
 #include "muse.h"
 
@@ -57,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|  ←Bksp  |    A    |    R    |    S    |    T    |    D    |    H    |    N    |    E    |    I    |    O    |  Enter  |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|  Shift  |    Z    |    X    |    C    |    V    |    B    |    K    |    M    |    '"   |    ;:   |   (↑)   |    )    |
+ *| ( Shift |    Z    |    X    |    C    |    V    |    B    |    K    |    M    |    '"   |    ;:   |   (↑)   | ) Shift |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|  Brite  |   GUI   |   Alt   |   Ctrl  |  LOWER  |       Space       |  RAISE  |   (←)   |   (←)   |   (↓)   |   (→)   |
  *`-----------------------------------------------------------------------------------------------------------------------'
@@ -66,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
   KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_MINS,  KC_SLSH,
   KC_BSPC,  KC_A,     KC_R,     KC_S,     KC_T,     KC_D,     KC_H,     KC_N,     KC_E,     KC_I,     KC_O,     KC_ENT,
-  KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_K,     KC_M,     KC_QUOT,  KC_SCLN,  KC_UP,    KC_RPRN,
+  SC_LSPO,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_K,     KC_M,     KC_QUOT,  KC_SCLN,  KC_UP,    SC_RSPC,
   BACKLIT,  KC_LGUI,  KC_LALT,  KC_LCTL,  LOWER,    KC_SPC,   KC_SPC,   RAISE,    KC_LEFT,  KC_LEFT,  KC_DOWN,  KC_RGHT
 ),
 /* Qwerty
@@ -77,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|  ←Bksp  |    A    |    S    |    D    |    F    |    G    |    H    |    J    |    K    |    L    |    -    |  Enter  |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|  Shift  |    Z    |    X    |    C    |    V    |    B    |    N    |    M    |    '"   |    ;:   |   (↑)   |    )    |
+ *| ( Shift |    Z    |    X    |    C    |    V    |    B    |    N    |    M    |    '"   |    ;:   |   (↑)   | ) Shift |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|  Brite  |   GUI   |   Alt   |   Ctrl  |  LOWER  |       Space       |  RAISE  |   (←)   |   (←)   |   (↓)   |   (→)   |
  *`-----------------------------------------------------------------------------------------------------------------------'
@@ -86,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
   KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_SLSH,
   KC_BSPC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_MINS,  KC_ENT,
-  KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_QUOT,  KC_SCLN,  KC_UP,    KC_RPRN,
+  SC_LSPO,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_QUOT,  KC_SCLN,  KC_UP,    SC_RSPC,
   BACKLIT,  KC_LGUI,  KC_LALT,  KC_LCTL,  LOWER,    KC_SPC,   KC_SPC,   RAISE,    KC_LEFT,  KC_LEFT,  KC_DOWN,  KC_RGHT
 ),
 
