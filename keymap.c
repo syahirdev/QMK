@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|  Shift  |    Z    |    X    |    C    |    V    |    B    |    K    |    M    |    '"   |    ;:   |   (↑)   |    )    |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|  Brite  |   GUI   |   Alt   |   Ctrl  | (LOWER) |       Space       | (RAISE) |   (←)   |   (←)   |   (↓)   |   (→)   |
+ *|  Brite  |   GUI   |   Alt   |   Ctrl  |  LOWER  |       Space       |  RAISE  |   (←)   |   (←)   |   (↓)   |   (→)   |
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_COLEMAK] = LAYOUT_preonic_grid(
@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|  Shift  |    Z    |    X    |    C    |    V    |    B    |    N    |    M    |    '"   |    ;:   |   (↑)   |    )    |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|  Brite  |   GUI   |   Alt   |   Ctrl  | (LOWER) |       Space       | (RAISE) |   (←)   |   (←)   |   (↓)   |   (→)   |
+ *|  Brite  |   GUI   |   Alt   |   Ctrl  |  LOWER  |       Space       |  RAISE  |   (←)   |   (←)   |   (↓)   |   (→)   |
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid(
@@ -98,8 +98,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO, LCTL(KC_Y),  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
   LCTL(KC_SLSH),LCTL(KC_Z),KC_NO,KC_HOME, KC_END,   KC_NO,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,
   LCTL(KC_BSPC),LCTL(KC_A),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),KC_LCBR,KC_RCBR,KC_LEFT,KC_DOWN,KC_RGHT,  KC_NO,    KC_NO,
-  KC_NO,    KC_NO,    KC_NO,    KC_NO,   LCTL(KC_S),KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-  LCTL(KC_R),KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,  LCTL(KC_S), KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+  LCTL(KC_R),KC_NO,   KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    KC_NO,    KC_NO
 ),
 
 /* Raise
@@ -120,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_7,     KC_8,     KC_9,     KC_NO,    KC_NO,
   KC_NO,    KC_PPLS,  KC_PMNS,  KC_PAST,  KC_PSLS,  KC_NO,    KC_NO,    KC_4,     KC_5,     KC_6,     KC_NO,    KC_NO,
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_1,     KC_2,     KC_3,     KC_NO,    KC_NO,
-  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_0,     KC_NO,    KC_NO,    KC_DOT
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    _______,  KC_0,     KC_NO,    KC_NO,    KC_DOT
 ),
 
 /* Adjust (Lower + Raise)
@@ -146,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_PSCR,  KC_NO,    KC_NO,    KC_F7,    KC_F8,    KC_F9,    KC_NO,    KC_NO,
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_F4,    KC_F5,    KC_F6,    KC_NO,    KC_NO,
   RGB_HUI,  RGB_SAI,  RGB_VAI,  KC_CALC,  KC_NO,    KC_NO,    KC_NO,    KC_F1,    KC_F2,    KC_F3,    KC_VOLU,  KC_NO,
-  RGB_HUD,  RGB_SAD,  RGB_VAD,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_VOLD,  KC_NO
+  RGB_HUD,  RGB_SAD,  RGB_VAD,  KC_NO,    _______,  KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    KC_VOLD,  KC_NO
 )
 
 
