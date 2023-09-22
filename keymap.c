@@ -39,25 +39,26 @@ enum preonic_keycodes {
   BACKLIT
 };
 
+// Layers
+#define L_LOWER LT(LOWER, KC_COMM)
+#define L_RAISE LT(RAISE, KC_DOT)
+
 // Custom names
 #define COMMENT LCTL(KC_SLSH)
 #define DBKSP LCTL(KC_BSPC)
-
 #define UNDO LCTL(KC_Z)
 #define REDO LCTL(KC_Y)
-
 #define SELECT LCTL(KC_A)
 #define CUT LCTL(KC_X)
 #define COPY LCTL(KC_C)
 #define PASTE LCTL(KC_V)
 #define SAVE LCTL(KC_S)
-
 #define REFRESH LCTL(KC_R)
 
 // One Shot Keys
 #define ONESHOT OSM(MOD_LSFT)
 
-// Tap-Dance declarations
+// Tap Dance declarations
 enum {
   COLN,
   QUOT,
@@ -68,7 +69,7 @@ enum {
   END,
 };
 
-// Tap-Dance definitions
+// Tap Dance definitions
 tap_dance_action_t tap_dance_actions[] = {
     [COLN] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN),
     [QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_DQUO),
@@ -91,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *| ( Shift |    Z    |    X    |    C    |    V    |    B    |    K    |    M    |   ' "   |   ; :   |   (↑)   | ) Shift |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|  Brite  |   GUI   |   Alt   |   Ctrl  |  LOWER  |       Space       |  RAISE  |   OSM   |   (←)   |   (↓)   |   (→)   |
+ *|  Brite  |   GUI   |   Alt   |   Ctrl  | , LOWER |       Space       | . RAISE |   OSM   |   (←)   |   (↓)   |   (→)   |
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_COLEMAK] = LAYOUT_preonic_grid(
@@ -99,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,     KC_J,     KC_L,     KC_U,     KC_Y,     TD(MINS), TD(SLSH),
   KC_BSPC,  KC_A,     KC_R,     KC_S,     KC_T,     KC_D,     KC_H,     KC_N,     KC_E,     KC_I,     KC_O,     KC_ENT,
   SC_LSPO,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_K,     KC_M,     TD(QUOT), TD(COLN), KC_UP,    SC_RSPC,
-  BACKLIT,  KC_LGUI,  KC_LALT,  KC_LCTL,  LOWER,    KC_SPC,   KC_SPC,   RAISE,    ONESHOT,  KC_LEFT,  KC_DOWN,  KC_RGHT
+  BACKLIT,  KC_LGUI,  KC_LALT,  KC_LCTL,  L_LOWER,  KC_SPC,   KC_SPC,   L_RAISE,  ONESHOT,  KC_LEFT,  KC_DOWN,  KC_RGHT
 ),
 /* Qwerty
  *,-----------------------------------------------------------------------------------------------------------------------.
@@ -109,9 +110,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|  ←Bksp  |    A    |    S    |    D    |    F    |    G    |    H    |    J    |    K    |    L    |   - =   |  Enter  |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *| ( Shift |    Z    |    X    |    C    |    V    |    B    |    N    |    M    |    '"   |    ;:   |   (↑)   | ) Shift |
+ *| ( Shift |    Z    |    X    |    C    |    V    |    B    |    N    |    M    |   ' "   |   ; :   |   (↑)   | ) Shift |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|  Brite  |   GUI   |   Alt   |   Ctrl  |  LOWER  |       Space       |  RAISE  |   OSM   |   (←)   |   (↓)   |   (→)   |
+ *|  Brite  |   GUI   |   Alt   |   Ctrl  | , LOWER |       Space       | . RAISE |   OSM   |   (←)   |   (↓)   |   (→)   |
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid(
@@ -119,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     TD(SLSH),
   KC_BSPC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     TD(MINS), KC_ENT,
   SC_LSPO,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     TD(QUOT), TD(COLN), KC_UP,    SC_RSPC,
-  BACKLIT,  KC_LGUI,  KC_LALT,  KC_LCTL,  LOWER,    KC_SPC,   KC_SPC,   RAISE,    ONESHOT,  KC_LEFT,  KC_DOWN,  KC_RGHT
+  BACKLIT,  KC_LGUI,  KC_LALT,  KC_LCTL,  L_LOWER,  KC_SPC,   KC_SPC,   L_RAISE,  ONESHOT,  KC_LEFT,  KC_DOWN,  KC_RGHT
 ),
 
 /* Lower
