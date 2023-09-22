@@ -130,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|Ctrl+Bksp| Ctrl+A  | Ctrl+X  | Ctrl+C  | Ctrl+V  |    {    |    }    |   (←)   |   (↓)   |   (→)   |         |         |
  *| ←←Bksp  | SELECT  | CUT     | COPY    | PASTE   |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|         |         |         |         | Ctrl+S  |    [    |    ]    |         |         |         |         |         |
+ *|  Shift  |         |         |         | Ctrl+S  |    [    |    ]    |         |         |         |         |         |
  *|         |         |         |         | SAVE    |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *| CTRL+R  |         |         |         |         |                   |         |         |         |         |         |
@@ -141,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_CAPS,  REDO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
   COMMENT,  UNDO,     KC_NO,    TD(HOME), TD(END),  KC_NO,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,
   DBKSP,    SELECT,   CUT,      COPY,     PASTE,    KC_LCBR,  KC_RCBR,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_NO,    KC_NO,
-  KC_NO,    KC_NO,    KC_NO,    KC_NO,    SAVE,     KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+  KC_LSFT,  KC_NO,    KC_NO,    KC_NO,    SAVE,     KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
   REFRESH,  KC_NO,    KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    KC_NO,    KC_NO
 ),
 
@@ -149,20 +149,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *,-----------------------------------------------------------------------------------------------------------------------.
  *|         |         |         |         |         |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|         |         |         |         |         |         |         |   7 &   |   8 *   |   9 (   |         |         |
+ *|         |         |         |         |         |         |         |   7 &   |   8 *   |   9 (   |    !    |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|         |    +    |    -    |    *    |    /    |         |         |   4 $   |   5 %   |   6 ^   |         |         |
+ *|         |    +    |    -    |    *    |    /    |         |         |   4 $   |   5 %   |   6 ^   |    ?    |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|         |         |         |         |         |         |         |   1 !   |   2 @   |   3 #   |         |         |
+ *|  Shift  |         |         |         |         |         |         |   1 !   |   2 @   |   3 #   |    @    |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|         |         |         |         |         |                   |         |   0 )   |         |         |    .    |
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_preonic_grid(
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_7,     KC_8,     KC_9,     KC_NO,    KC_NO,
-  KC_NO,    KC_PPLS,  KC_PMNS,  KC_PAST,  KC_PSLS,  KC_NO,    KC_NO,    KC_4,     KC_5,     KC_6,     KC_NO,    KC_NO,
-  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_1,     KC_2,     KC_3,     KC_NO,    KC_NO,
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_7,     KC_8,     KC_9,     KC_EXLM,  KC_NO,
+  KC_NO,    KC_PPLS,  KC_PMNS,  KC_PAST,  KC_PSLS,  KC_NO,    KC_NO,    KC_4,     KC_5,     KC_6,     KC_QUES,  KC_NO,
+  KC_LSFT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_1,     KC_2,     KC_3,     KC_AT,    KC_NO,
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    _______,  KC_0,     KC_NO,    KC_NO,    KC_DOT
 ),
 
