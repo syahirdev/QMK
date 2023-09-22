@@ -67,6 +67,7 @@ enum preonic_keycodes {
 #define PASTE LCTL(KC_V)
 #define SAVE LCTL(KC_S)
 #define REFRESH LCTL(KC_R)
+#define XPNDSLCT LSA(KC_RGHT)
 
 // One Shot Keys
 #define ONESHOT OSM(MOD_LSFT)
@@ -141,8 +142,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *| CAPS    | Ctrl+Y  |         |         |         |         |         |         |         |         |         |         |
  *| LOCK    | REDO    |         |         |         |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *| Ctrl+/  | Ctrl+Z  |         | HOME /  |  END /  |         |         |         |   (↑)   |         |         |         |
- *| COMMENT | UNDO    |         | S+HOME  |  S+END  |         |         |         |         |         |         |         |
+ *| Ctrl+/  | Ctrl+Z  | S+A+(→) | HOME /  |  END /  |         |         |         |   (↑)   |         |         |         |
+ *| COMMENT | UNDO    | EXPAND  | S+HOME  |  S+END  |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|Ctrl+Bksp| Ctrl+A  | Ctrl+X  | Ctrl+C  | Ctrl+V  |    {    |    }    |   (←)   |   (↓)   |   (→)   |         |         |
  *| ←←Bksp  | SELECT  | CUT     | COPY    | PASTE   |         |         |         |         |         |         |         |
@@ -156,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT_preonic_grid(
   KC_CAPS,  REDO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-  COMMENT,  UNDO,     KC_NO,    TD(HOME), TD(END),  KC_NO,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,
+  COMMENT,  UNDO,     XPNDSLCT, TD(HOME), TD(END),  KC_NO,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,
   DBKSP,    SELECT,   CUT,      COPY,     PASTE,    KC_LCBR,  KC_RCBR,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_NO,    KC_NO,
   KC_LSFT,  KC_NO,    KC_NO,    KC_NO,    SAVE,     KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
   REFRESH,  KC_NO,    KC_NO,    KC_NO,    LOWER,    KC_NO,    KC_NO,    RAISE,    KC_NO,    KC_NO,    KC_NO,    KC_NO
