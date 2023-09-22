@@ -121,8 +121,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Lower
  *,-----------------------------------------------------------------------------------------------------------------------.
- *|         | Ctrl+Y  |         |         |         |         |         |         |         |         |         |         |
- *|         | REDO    |         |         |         |         |         |         |         |         |         |         |
+ *| CAPS    | Ctrl+Y  |         |         |         |         |         |         |         |         |         |         |
+ *| LOCK    | REDO    |         |         |         |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *| Ctrl+/  | Ctrl+Z  |         | HOME /  |  END /  |         |         |         |   (↑)   |         |         |         |
  *| COMMENT | UNDO    |         | S+HOME  |  S+END  |         |         |         |         |         |         |         |
@@ -138,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_preonic_grid(
-  KC_NO,    REDO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+  KC_CAPS,  REDO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
   COMMENT,  UNDO,     KC_NO,    TD(HOME), TD(END),  KC_NO,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,
   DBKSP,    SELECT,   CUT,      COPY,     PASTE,    KC_LCBR,  KC_RCBR,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_NO,    KC_NO,
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    SAVE,     KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
