@@ -15,8 +15,21 @@
  */
 
 /*
- * Left and right shift are using Space Cadet.
- *   Space Cadet: Left Shift when held, ( when tapped
+ * #define L_LOWER LT(LOWER, KC_COMM)
+ * #define L_RAISE LT(RAISE, KC_DOT)
+ * when press once, output as "," (for lower layer) or "." (for raise layer)
+ *
+ * Tap Dance (TD_)
+ * when press once, acted as normal key (e.g. ";")
+ * when press twice, acted as another key (e.g. ":")
+ *
+ * Space Cadet (SC_)
+ * when press once, output as "(" or ")"
+ * when press and hold, acted as normal Shift key
+ *
+ * One Shot Keys (ONESHOT)
+ * when press once, the next character will detect as Shift + KC.
+ * when press and hold, acted as normal Shift key
  */
 
 #include QMK_KEYBOARD_H
