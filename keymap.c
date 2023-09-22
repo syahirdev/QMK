@@ -21,6 +21,7 @@
 
 #include QMK_KEYBOARD_H
 #include "muse.h"
+#include "quantum.h"
 
 enum preonic_layers {
   _COLEMAK,
@@ -38,6 +39,7 @@ enum preonic_keycodes {
   BACKLIT
 };
 
+// Custom names
 #define COMMENT LCTL(KC_SLSH)
 #define DBKSP LCTL(KC_BSPC)
 
@@ -52,35 +54,57 @@ enum preonic_keycodes {
 
 #define REFRESH LCTL(KC_R)
 
+// Tap-Dance declarations
+enum {
+  COLN,
+  QUOT,
+  MINS,
+  SLSH,
+  GRV,
+  HOME,
+  END,
+};
+
+// Tap-Dance definitions
+tap_dance_action_t tap_dance_actions[] = {
+    [COLN] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN),
+    [QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_DQUO),
+    [MINS] = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_EQL),
+    [SLSH] = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, KC_BSLS),
+    [GRV] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_GRV),
+    [HOME] = ACTION_TAP_DANCE_DOUBLE(KC_HOME, LSFT(KC_HOME)),
+    [END] = ACTION_TAP_DANCE_DOUBLE(KC_END, LSFT(KC_END))
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Colemak
  *,-----------------------------------------------------------------------------------------------------------------------.
- *|   Esc   |   1 !   |   2 @   |   3 #   |   4 $   |   5 %   |   6 ^   |   7 &   |   8 *   |   9 (   |   0 )   |   Del   |
+ *|  Esc `  |   1 !   |   2 @   |   3 #   |   4 $   |   5 %   |   6 ^   |   7 &   |   8 *   |   9 (   |   0 )   |   Del   |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|   Tab   |    Q    |    W    |    F    |    P    |    G    |    J    |    L    |    U    |    Y    |    -    |    /    |
+ *|   Tab   |    Q    |    W    |    F    |    P    |    G    |    J    |    L    |    U    |    Y    |   - =   |   / \   |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|  ←Bksp  |    A    |    R    |    S    |    T    |    D    |    H    |    N    |    E    |    I    |    O    |  Enter  |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *| ( Shift |    Z    |    X    |    C    |    V    |    B    |    K    |    M    |    '"   |    ;:   |   (↑)   | ) Shift |
+ *| ( Shift |    Z    |    X    |    C    |    V    |    B    |    K    |    M    |   ' "   |   ; :   |   (↑)   | ) Shift |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|  Brite  |   GUI   |   Alt   |   Ctrl  |  LOWER  |       Space       |  RAISE  |   (←)   |   (←)   |   (↓)   |   (→)   |
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_COLEMAK] = LAYOUT_preonic_grid(
-  KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
-  KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_MINS,  KC_SLSH,
+  TD(GRV),   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
+  KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,     KC_J,     KC_L,     KC_U,     KC_Y,     TD(MINS), TD(SLSH),
   KC_BSPC,  KC_A,     KC_R,     KC_S,     KC_T,     KC_D,     KC_H,     KC_N,     KC_E,     KC_I,     KC_O,     KC_ENT,
-  SC_LSPO,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_K,     KC_M,     KC_QUOT,  KC_SCLN,  KC_UP,    SC_RSPC,
+  SC_LSPO,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_K,     KC_M,     TD(QUOT), TD(COLN), KC_UP,    SC_RSPC,
   BACKLIT,  KC_LGUI,  KC_LALT,  KC_LCTL,  LOWER,    KC_SPC,   KC_SPC,   RAISE,    KC_LEFT,  KC_LEFT,  KC_DOWN,  KC_RGHT
 ),
 /* Qwerty
  *,-----------------------------------------------------------------------------------------------------------------------.
- *|   Esc   |   1 !   |   2 @   |   3 #   |   4 $   |   5 %   |   6 ^   |   7 &   |   8 *   |   9 (   |   0 )   |   Del   |
+ *|  Esc `  |   1 !   |   2 @   |   3 #   |   4 $   |   5 %   |   6 ^   |   7 &   |   8 *   |   9 (   |   0 )   |   Del   |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|   Tab   |    Q    |    W    |    E    |    R    |    T    |    Y    |    U    |    I    |    O    |    P    |    /    |
+ *|   Tab   |    Q    |    W    |    E    |    R    |    T    |    Y    |    U    |    I    |    O    |    P    |   / \   |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|  ←Bksp  |    A    |    S    |    D    |    F    |    G    |    H    |    J    |    K    |    L    |    -    |  Enter  |
+ *|  ←Bksp  |    A    |    S    |    D    |    F    |    G    |    H    |    J    |    K    |    L    |   - =   |  Enter  |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *| ( Shift |    Z    |    X    |    C    |    V    |    B    |    N    |    M    |    '"   |    ;:   |   (↑)   | ) Shift |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
@@ -88,10 +112,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid(
-  KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
-  KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_SLSH,
-  KC_BSPC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_MINS,  KC_ENT,
-  SC_LSPO,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_QUOT,  KC_SCLN,  KC_UP,    SC_RSPC,
+  TD(GRV),  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
+  KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     TD(SLSH),
+  KC_BSPC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     TD(MINS), KC_ENT,
+  SC_LSPO,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     TD(QUOT), TD(COLN), KC_UP,    SC_RSPC,
   BACKLIT,  KC_LGUI,  KC_LALT,  KC_LCTL,  LOWER,    KC_SPC,   KC_SPC,   RAISE,    KC_LEFT,  KC_LEFT,  KC_DOWN,  KC_RGHT
 ),
 
@@ -100,8 +124,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|         | Ctrl+Y  |         |         |         |         |         |         |         |         |         |         |
  *|         | REDO    |         |         |         |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *| Ctrl+/  | Ctrl+Z  |         |  HOME   |   END   |         |         |         |   (↑)   |         |         |         |
- *| COMMENT | UNDO    |         |         |         |         |         |         |         |         |         |         |
+ *| Ctrl+/  | Ctrl+Z  |         | HOME /  |  END /  |         |         |         |   (↑)   |         |         |         |
+ *| COMMENT | UNDO    |         | S+HOME  |  S+END  |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|Ctrl+Bksp| Ctrl+A  | Ctrl+X  | Ctrl+C  | Ctrl+V  |    {    |    }    |   (←)   |   (↓)   |   (→)   |         |         |
  *| ←←Bksp  | SELECT  | CUT     | COPY    | PASTE   |         |         |         |         |         |         |         |
@@ -115,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT_preonic_grid(
   KC_NO,    REDO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-  COMMENT,  UNDO,     KC_NO,    KC_HOME,  KC_END,   KC_NO,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,
+  COMMENT,  UNDO,     KC_NO,    TD(HOME), TD(END),  KC_NO,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,
   DBKSP,    SELECT,   CUT,      COPY,     PASTE,    KC_LCBR,  KC_RCBR,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_NO,    KC_NO,
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    SAVE,     KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
   REFRESH,  KC_NO,    KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    _______,  KC_NO,    KC_NO,    KC_NO,    KC_NO
