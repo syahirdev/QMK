@@ -148,10 +148,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|Ctrl+Bksp| Ctrl+A  | Ctrl+X  | Ctrl+C  | Ctrl+V  |    {    |    }    |   (←)   |   (↓)   |   (→)   |         |         |
  *| ←←Bksp  | SELECT  | CUT     | COPY    | PASTE   |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|  Shift  |         |         |         | Ctrl+S  |    [    |    ]    |         |         |         |         |         |
+ *| _______ |         |         |         | Ctrl+S  |    [    |    ]    |         |         |         |         |         |
  *|         |         |         |         | SAVE    |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *| CTRL+R  |         |         |         |  LOWER  |                   |  RAISE  |         |         |         |         |
+ *| CTRL+R  |         | _______ | _______ |  LOWER  |                   |  RAISE  |         |         |         |         |
  *| REFRESH |         |         |         |         |                   |         |         |         |         |         |
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
@@ -159,8 +159,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_CAPS,  REDO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
   COMMENT,  UNDO,     XPNDSLCT, TD(HOME), TD(END),  KC_NO,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,
   DBKSP,    SELECT,   CUT,      COPY,     PASTE,    KC_LCBR,  KC_RCBR,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_NO,    KC_NO,
-  KC_LSFT,  KC_NO,    KC_NO,    KC_NO,    SAVE,     KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-  REFRESH,  KC_NO,    KC_NO,    KC_NO,    LOWER,    KC_NO,    KC_NO,    RAISE,    KC_NO,    KC_NO,    KC_NO,    KC_NO
+  _______,  KC_NO,    KC_NO,    KC_NO,    SAVE,     KC_LBRC,  KC_RBRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+  REFRESH,  KC_NO,    _______,  _______,  LOWER,    KC_NO,    KC_NO,    RAISE,    KC_NO,    KC_NO,    KC_NO,    KC_NO
 ),
 
 /* Raise
@@ -171,22 +171,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|         |    +    |    -    |    *    |    /    |         |         |   4 $   |   5 %   |   6 ^   |    ?    |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|  Shift  |         |         |         |         |         |         |   1 !   |   2 @   |   3 #   |    @    |         |
+ *| _______ |         |         |         |         |         |         |   1 !   |   2 @   |   3 #   |    @    |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
- *|         |         |         |         |  LOWER  |                   |  RAISE  |   0 )   |         |         |    .    |
+ *|         |         | _______ | _______ |  LOWER  |        0 )        |  RAISE  |   0 )   |         |         |    .    |
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_preonic_grid(
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_7,     KC_8,     KC_9,     KC_EXLM,  KC_NO,
   KC_NO,    KC_PPLS,  KC_PMNS,  KC_PAST,  KC_PSLS,  KC_NO,    KC_NO,    KC_4,     KC_5,     KC_6,     KC_QUES,  KC_NO,
-  KC_LSFT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_1,     KC_2,     KC_3,     KC_AT,    KC_NO,
-  KC_NO,    KC_NO,    KC_NO,    KC_NO,    LOWER,    KC_NO,    KC_NO,    RAISE,    KC_0,     KC_NO,    KC_NO,    KC_DOT
+  _______,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_1,     KC_2,     KC_3,     KC_AT,    KC_NO,
+  KC_NO,    KC_NO,    _______,  _______,  LOWER,    KC_0,     KC_0,     RAISE,    KC_0,     KC_NO,    KC_NO,    KC_DOT
 ),
 
 /* Adjust (Lower + Raise)
  *,-----------------------------------------------------------------------------------------------------------------------.
- *|         | TYPE:   | TYPE:   |         |         |         |         |   F10   |   F11   |   F12   |         |  RESET  |
+ *|  RESET  | TYPE:   | TYPE:   |         |         |         |         |   F10   |   F11   |   F12   |         |  MY_PC  |
  *|         | COLEMAK | QWERTY  |         |         |         |         |         |         |         |         |         |
  *|---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------|
  *|         |         |         |         |  PRNT   |         |         |   F7    |   F8    |   F9    |         |         |
@@ -203,7 +203,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *`-----------------------------------------------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_preonic_grid(
-  KC_NO,    COLEMAK,  QWERTY,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_F10,   KC_F11,   KC_F12,   KC_NO,    QK_BOOT,
+  QK_BOOT,  COLEMAK,  QWERTY,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_F10,   KC_F11,   KC_F12,   KC_NO,    KC_MYCM,
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_PSCR,  KC_NO,    KC_NO,    KC_F7,    KC_F8,    KC_F9,    KC_NO,    KC_NO,
   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_F4,    KC_F5,    KC_F6,    KC_NO,    KC_NO,
   RGB_HUI,  RGB_SAI,  RGB_VAI,  KC_CALC,  KC_NO,    KC_NO,    KC_NO,    KC_F1,    KC_F2,    KC_F3,    KC_VOLU,  KC_NO,
